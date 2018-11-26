@@ -8,17 +8,15 @@ class QuickSort {
        pivot and all greater elements to right
        of pivot */
     public int partition(Player[] arr, int low, int high) {
-        Player playerPvot = arr[high];
+        Player playerPivot = arr[high];
 
-        long pivot = playerPvot.getHighScore();
-
-        int q = high + 1;
-        int i = (low - 1); // index of smaller element
+        // index of smaller element
+        int i = (low - 1);
 
         for (int j = low; j < high; j++) {
 
             if (arr[j] != null) {
-                if (arr[j].compareTo(playerPvot) >= 1) {
+                if (arr[j].compareTo(playerPivot) >= 1) {
                     i++;
 
                     // swap arr[i] and arr[j]
