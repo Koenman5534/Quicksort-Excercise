@@ -14,14 +14,15 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
     static LinkedList<Player> extendedUnsortedPlayers = new LinkedList<>();
 
     @Test
-    public void quickSort() {
+    public void testArrayQuickSortSorts() {
 
 
         Player harry = new Player("Harry", "Potter", 100);
         Player onmisbareHenk = new Player("Henk", "Timmerman", 1000);
         Player papaPotter = new Player("James", "Potter", 95);
 
-        int numberOfPlayers = 2;
+        int numberOfPlayers = 3;
+
 
         extendedUnsortedPlayers.addLast(harry);
         extendedUnsortedPlayers.addLast(onmisbareHenk);
@@ -31,6 +32,5 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         AdvancedSorts.quickSort(players);
 
         System.out.println(players);
-
     }
 }

@@ -1,38 +1,48 @@
 package nl.hva.ict.ss;
 
 import static javafx.application.Platform.exit;
+import nl.hva.ict.ss.Player;
 
 class QuickSort
 {
+
+    private Player player;
+
     /* This function takes last element as pivot,
        places the pivot element at its correct
        position in sorted array, and places all
        smaller (smaller than pivot) to left of
        pivot and all greater elements to right
        of pivot */
-    public static <E extends Comparable<E>> int partition(E[] arr, int low, int high)
+    public int partition(Player[] arr, int low, int high)
     {
-        E pivot = arr[high];
+        int pivot = arr.length;
+
+        System.out.println("Hoi");
         System.out.println(high);
         System.out.println(pivot);
 
         int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
+
+        for (int j=low; j < high; j++)
         {
+            System.out.println(arr[j]);
+//            System.out.println(player.compareTo( arr[j]));
+
             // If current element is smaller than or
             // equal to pivot
-            if (arr[j] == pivot) {
+            if (player.compareTo(arr[j]) <= pivot) {
                 i++;
 
                 // swap arr[i] and arr[j]
-                E temp = arr[i];
+                Player temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
 
         // swap arr[i+1] and arr[high] (or pivot)
-        E temp = arr[i+1];
+        Player temp = arr[i+1];
         arr[i+1] = arr[high];
         arr[high] = temp;
 
