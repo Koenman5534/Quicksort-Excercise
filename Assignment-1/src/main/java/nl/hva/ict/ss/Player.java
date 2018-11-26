@@ -87,4 +87,12 @@ public class Player implements Comparable<Player> {
         }
         return -1;
     }
+
+    public String toString() {
+        return "Player{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", highScore=" + highScore +
+                '}';
+    }
 }

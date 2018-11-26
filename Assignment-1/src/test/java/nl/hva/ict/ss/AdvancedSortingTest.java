@@ -47,6 +47,7 @@ public class AdvancedSortingTest {
         System.out.printf("Array implementation%n");
         long timeNeeded = 0;
         for (int numberOfPlayers = 100; numberOfPlayers < UPPER_LIMIT && timeNeeded < TWENTY_SECONDS; numberOfPlayers *= 2) {
+
             Player[] players = getSubList(unsortedPlayers, numberOfPlayers).toArray(new Player[numberOfPlayers]);
             System.gc();
 

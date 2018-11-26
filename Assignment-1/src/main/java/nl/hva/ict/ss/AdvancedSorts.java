@@ -38,10 +38,12 @@ public class AdvancedSorts {
 
         int high = unsorted.length;
 
+        System.out.println("high=" + high);
         QuickSort ob = new QuickSort();
         ob.sort((Player[]) unsorted, 0, high);
 
         System.out.println("sorted array");
+        System.out.println(unsorted.toString());
         QuickSort.printArray((Player[]) unsorted);
 
 //        System.out.println(pivot);

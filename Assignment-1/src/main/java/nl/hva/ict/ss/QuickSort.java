@@ -65,8 +65,11 @@ class QuickSort
     {
         System.out.println("wat gebeurt hier?");
         int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i]+" ");
+        System.out.println("wat zit er in n: " + n);
+        for (int i=0; i < n; ++i) {
+            System.out.println(arr.toString());
+            System.out.print(arr[i] + " ");
+        }
         System.out.println();
     }
 

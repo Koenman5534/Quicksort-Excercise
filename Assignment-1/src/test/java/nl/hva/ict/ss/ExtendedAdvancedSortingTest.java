@@ -1,13 +1,8 @@
 package nl.hva.ict.ss;
 
-import nl.hva.ict.ss.util.NameReader;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.security.SecureRandom;
 import java.util.LinkedList;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Put your tests that show you implemented the code correctly in this class.
@@ -16,11 +11,26 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
+    static LinkedList<Player> extendedUnsortedPlayers = new LinkedList<>();
 
     @Test
     public void quickSort() {
 
-        System.out.println("Eigen test. Leeg");
+
+        Player harry = new Player("Harry", "Potter", 100);
+        Player onmisbareHenk = new Player("Henk", "Timmerman", 1000);
+        Player papaPotter = new Player("James", "Potter", 95);
+
+        int numberOfPlayers = 2;
+
+        extendedUnsortedPlayers.addLast(harry);
+        extendedUnsortedPlayers.addLast(onmisbareHenk);
+        extendedUnsortedPlayers.addLast(papaPotter);
+
+        Player[] players = getSubList(extendedUnsortedPlayers, numberOfPlayers).toArray(new Player[numberOfPlayers]);
+        AdvancedSorts.quickSort(players);
+
+        System.out.println(players);
 
     }
 }
