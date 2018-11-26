@@ -5,9 +5,6 @@ import nl.hva.ict.ss.Player;
 
 class QuickSort
 {
-
-    private Player player;
-
     /* This function takes last element as pivot,
        places the pivot element at its correct
        position in sorted array, and places all
@@ -18,26 +15,35 @@ class QuickSort
     {
         int pivot = arr.length;
 
-        System.out.println("Hoi");
-        System.out.println(high);
-        System.out.println(pivot);
+        System.out.println("high = " + high);
+        System.out.println("pivot = " + pivot);
 
         int i = (low-1); // index of smaller element
 
         for (int j=low; j < high; j++)
         {
             System.out.println(arr[j]);
-//            System.out.println(player.compareTo( arr[j]));
 
             // If current element is smaller than or
             // equal to pivot
-            if (player.compareTo(arr[j]) <= pivot) {
+            if (arr[j].compareTo(arr[pivot - 1]) > 0) {
                 i++;
+
+                System.out.println("in de loop " + j);
 
                 // swap arr[i] and arr[j]
                 Player temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
+            } else if (arr[j].compareTo(arr[pivot -1]) == 0 ){
+                i++;
+
+                System.out.println("in de loop " + j);
+
+                // swap arr[j] and arr[i]
+                Player temp = arr[i];
+                arr[j] = arr[i];
+                arr[i] = temp;
             }
         }
 
@@ -82,17 +88,4 @@ class QuickSort
         }
         System.out.println();
     }
-
-    // Driver program
-//    public static void main(String args[])
-//    {
-//        int arr[] = {10, 7, 8, 9, 1, 5};
-//        int n = arr.length;
-//
-//        QuickSort ob = new QuickSort();
-//        ob.sort(arr, 0, n-1);
-//
-//        System.out.println("sorted array");
-//        printArray(arr);
-//    }
 }
