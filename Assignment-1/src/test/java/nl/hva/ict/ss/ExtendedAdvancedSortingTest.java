@@ -20,13 +20,15 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         Player harry = new Player("Harry", "Potter", 100);
         Player onmisbareHenk = new Player("Henk", "Timmerman", 1000);
         Player papaPotter = new Player("James", "Potter", 95);
+        Player harryDeTweede = new Player("Harry2", "Potter", 100);
 
-        int numberOfPlayers = 3;
+        int numberOfPlayers = 4;
 
 
         extendedUnsortedPlayers.addLast(harry);
         extendedUnsortedPlayers.addLast(onmisbareHenk);
         extendedUnsortedPlayers.addLast(papaPotter);
+        extendedUnsortedPlayers.addLast(harryDeTweede);
 
         Player[] players = getSubList(extendedUnsortedPlayers, numberOfPlayers).toArray(new Player[numberOfPlayers]);
         AdvancedSorts.quickSort(players);

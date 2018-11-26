@@ -13,32 +13,30 @@ class QuickSort
        of pivot */
     public int partition(Player[] arr, int low, int high)
     {
-        int pivot = arr.length;
-
-        System.out.println("high = " + high);
-        System.out.println("pivot = " + pivot);
+        Player playerPvot = arr[low];
+        long pivot = playerPvot.getHighScore();
 
         int i = (low-1); // index of smaller element
 
-        for (int j=low; j < high; j++)
-        {
-            System.out.println(arr[j]);
+        for (int j=low; j <= high; j++) {
 
             // If current element is smaller than or
             // equal to pivot
-            if (arr[j].compareTo(arr[pivot - 1]) > 0) {
+            if (arr[j].compareTo(playerPvot) >= 1) {
                 i++;
 
-                System.out.println("in de loop " + j);
+                System.out.println(arr[j]);
+                System.out.println("in de is groter dan loop " + j);
 
                 // swap arr[i] and arr[j]
                 Player temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
-            } else if (arr[j].compareTo(arr[pivot -1]) == 0 ){
+            } else if (arr[j].compareTo(playerPvot) <= 0 ){
                 i++;
 
-                System.out.println("in de loop " + j);
+                System.out.println(arr[j]);
+                System.out.println("in de is kleiner dan aan loop " + j);
 
                 // swap arr[j] and arr[i]
                 Player temp = arr[i];
