@@ -1,12 +1,18 @@
 package nl.hva.ict.ss;
 
 class QuickSort {
-    /* This function takes last element as pivot,
-       places the pivot element at its correct
-       position in sorted array, and places all
-       smaller (smaller than pivot) to left of
-       pivot and all greater elements to right
-       of pivot */
+    /**
+     * This function takes last element as pivot,
+     * places the pivot element at its correct
+     * position in sorted array, and places all
+     * smaller (smaller than pivot) to left of
+     * pivot and all greater elements to right
+     * of pivot
+     * @param arr
+     * @param low
+     * @param high
+     * @return index from where to sort from
+     */
     public int partition(Player[] arr, int low, int high) {
         Player playerPivot = arr[high];
 
@@ -36,11 +42,11 @@ class QuickSort {
     }
 
 
-    /* The main function that implements QuickSort()
-      arr[] --> Array to be sorted,
-      low  --> Starting index,
-      high  --> Ending index */
-
+    /**
+     * @param arr Contains unsorted array
+     * @param low
+     * @param high
+     */
     void sort(Player arr[], int low, int high) {
         if (low < high) {
             /* pi is partitioning index, arr[pi] is

@@ -34,7 +34,7 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         Player[] players = getSubList(extendedUnsortedPlayers, numberOfPlayers).toArray(new Player[numberOfPlayers]);
         AdvancedSorts.quickSort(players);
 
-        //for testing purpose
+        //for testing purpose, show that it sorted
         System.out.println("sorted array:");
         for (Player pot : players) {
             System.out.println(pot + " ");
