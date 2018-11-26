@@ -13,10 +13,12 @@ class QuickSort
     public static <E extends Comparable<E>> int partition(E[] arr, int low, int high)
     {
         E pivot = arr[high];
+
         System.out.println(high);
         System.out.println(pivot);
 
         int i = (low-1); // index of smaller element
+
         for (int j=low; j<high; j++)
         {
             // If current element is smaller than or
