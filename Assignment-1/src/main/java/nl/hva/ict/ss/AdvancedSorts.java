@@ -38,15 +38,13 @@ public class AdvancedSorts {
         QuickSort qs = new QuickSort();
 
         int high = unsorted.length;
+        qs.sort((Player[]) unsorted, 0, high-1);
 
-        System.out.println("high=" + high);
-
-        qs.sort((Player[]) unsorted, 0, high);
-
-        System.out.println("sorted array");
-        System.out.println(unsorted.toString());
-
-        QuickSort.printArray((Player[]) unsorted);
+        //for testing purpose
+//        System.out.println("sorted array:");
+//        for (E pot : unsorted) {
+//            System.out.println(pot + " ");
+//        }
 
         return unsorted;
     }

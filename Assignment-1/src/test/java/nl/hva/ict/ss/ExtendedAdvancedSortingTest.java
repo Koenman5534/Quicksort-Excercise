@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.LinkedList;
 
+import static junit.framework.TestCase.*;
+
 /**
  * Put your tests that show you implemented the code correctly in this class.
  * Any test placed at a different class will be ignored!
@@ -24,7 +26,6 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
         int numberOfPlayers = 4;
 
-
         extendedUnsortedPlayers.addLast(harry);
         extendedUnsortedPlayers.addLast(onmisbareHenk);
         extendedUnsortedPlayers.addLast(papaPotter);
@@ -33,6 +34,13 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         Player[] players = getSubList(extendedUnsortedPlayers, numberOfPlayers).toArray(new Player[numberOfPlayers]);
         AdvancedSorts.quickSort(players);
 
-        System.out.println(players);
+        //for testing purpose
+        System.out.println("sorted array:");
+        for (Player pot : players) {
+            System.out.println(pot + " ");
+        }
+
+        assertEquals(4, players.length);
+        assertEquals(onmisbareHenk, players[0]);
     }
 }
