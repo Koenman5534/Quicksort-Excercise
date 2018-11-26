@@ -46,21 +46,27 @@ public class Player implements Comparable<Player> {
         //If b results higher then a 0 is returned
         //If the end up the same or something wrong happen -1 is returned
 
-        //Highscore a better then b return 1
-        if (highScore > other.highScore){
+        //Highscore a higher then b return 1
+        if (highScore > other.highScore) {
             return 1;
 
-            //Highscores the same? then check the lastname
+        } else if(other.highScore > highScore){
+            //highscore b higher then a
+            return 0;
+                   //IGNORE INTELLIJ WARNING
         } else if (highScore == other.highScore){
+            //Highscores the same? then check the lastname
 
             String a = lastName;
             String b = other.lastName;
 
             int compareLastname = a.compareTo(b);
+
             //a compared higher then b
             if (compareLastname < 0){
                 return 1;
             }
+
             //b compared higher then a
             else if (compareLastname > 0) {
                 return 0;
@@ -75,10 +81,12 @@ public class Player implements Comparable<Player> {
                 if (compareFirstname < 0){
                     return 1;
                 }
+
                 //d compared higher then c
                 else if (compareFirstname > 0) {
                     return 0;
                 }
+
                 //highscores, ab and cd are the same to it must be the same object
                 else {
                     return -1;
