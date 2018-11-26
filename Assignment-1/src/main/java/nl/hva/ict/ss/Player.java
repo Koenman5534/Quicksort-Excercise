@@ -46,50 +46,52 @@ public class Player implements Comparable<Player> {
         //If b results higher then a 0 is returned
         //If the end up the same or something wrong happen -1 is returned
 
-        //Highscore a higher then b return 1
-        if (highScore > other.highScore) {
-            return 1;
-
-        } else if(other.highScore > highScore){
-            //highscore b higher then a
-            return 0;
-                   //IGNORE INTELLIJ WARNING
-        } else if (highScore == other.highScore){
-            //Highscores the same? then check the lastname
-
-            String a = lastName;
-            String b = other.lastName;
-
-            int compareLastname = a.compareTo(b);
-
-            //a compared higher then b
-            if (compareLastname < 0){
+        if (other != null) {
+            //Highscore a higher then b return 1
+            if (highScore > other.highScore) {
                 return 1;
-            }
 
-            //b compared higher then a
-            else if (compareLastname > 0) {
+            } else if (other.highScore > highScore) {
+                //highscore b higher then a
                 return 0;
-            }
-            //a and b both the same, now start to compare the firstnames
-            else {
-                String c = firstName;
-                String d = other.firstName;
+                //IGNORE INTELLIJ WARNING
+            } else if (highScore == other.highScore) {
+                //Highscores the same? then check the lastname
 
-                int compareFirstname = c.compareTo(d);
-                //c compared higher then d
-                if (compareFirstname < 0){
+                String a = lastName;
+                String b = other.lastName;
+
+                int compareLastname = a.compareTo(b);
+
+                //a compared higher then b
+                if (compareLastname < 0) {
                     return 1;
                 }
 
-                //d compared higher then c
-                else if (compareFirstname > 0) {
+                //b compared higher then a
+                else if (compareLastname > 0) {
                     return 0;
                 }
-
-                //highscores, ab and cd are the same to it must be the same object
+                //a and b both the same, now start to compare the firstnames
                 else {
-                    return -1;
+                    String c = firstName;
+                    String d = other.firstName;
+
+                    int compareFirstname = c.compareTo(d);
+                    //c compared higher then d
+                    if (compareFirstname < 0) {
+                        return 1;
+                    }
+
+                    //d compared higher then c
+                    else if (compareFirstname > 0) {
+                        return 0;
+                    }
+
+                    //highscores, ab and cd are the same to it must be the same object
+                    else {
+                        return -1;
+                    }
                 }
             }
         }
