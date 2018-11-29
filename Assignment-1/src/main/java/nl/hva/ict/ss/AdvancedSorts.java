@@ -13,15 +13,26 @@ public class AdvancedSorts {
      */
     public static <E extends Comparable<E>> LinkedList<E> quickSort(LinkedList<E> unsorted) {
 
-        //Doubly linked list
-        QuickSortLinkedList list =  new QuickSortLinkedList();
+        //sorted linkedlist
+        LinkedList<E> sorted = new LinkedList<>();
 
-         
+        new QuickSort();
+        QuickSort qs = new QuickSort();
 
+        //ignoring that empty unsorted in test setup
+        if (unsorted.size() >= 1) {
 
+            //fill linkedlist with unsorted data
+            for (E playerData : unsorted) {
+                sorted.push(playerData);
+            }
 
+            int high = unsorted.size();
+            qs.sort((LinkedList<Player>) unsorted, 0, high - 1);
 
-        return unsorted;
+        }
+        //sorted list
+        return sorted;
 
     }
 
@@ -33,19 +44,24 @@ public class AdvancedSorts {
      * @return
      */
     public static <E extends Comparable<E>> E[] quickSort(E[] unsorted) {
-        new QuickSortArray();
-        QuickSortArray qs = new QuickSortArray();
 
-        int high = unsorted.length;
-        qs.sort((Player[]) unsorted, 0, high-1);
+        //sorted array
+        E[] sorted;
 
-        //for testing purpose
-//        System.out.println("sorted array:");
-//        for (E pot : unsorted) {
-//            System.out.println(pot + " ");
-//        }
+        new QuickSort();
+        QuickSort qs = new QuickSort();
 
-        return unsorted;
+        //ignoring that empty unsorted in test setup
+        if (unsorted.length >= 1) {
+            int high = unsorted.length;
+            //quicksort the unsorted array
+            qs.sort((Player[]) unsorted, 0, high - 1);
+
+
+        }
+        //even if unsorted is null, still copy it to sorted array
+        sorted = unsorted;
+        return sorted;
     }
 
 

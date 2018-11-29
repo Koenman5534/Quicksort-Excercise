@@ -18,7 +18,6 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
     @Test
     public void testArrayQuickSortSorts() {
 
-
         Player harry = new Player("Harry", "Potter", 100);
         Player onmisbareHenk = new Player("Henk", "Timmerman", 1000);
         Player papaPotter = new Player("James", "Potter", 95);
@@ -42,5 +41,33 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
         assertEquals(4, players.length);
         assertEquals(onmisbareHenk, players[0]);
+    }
+
+    @Test
+    public void testLinkedListQuickSort() {
+
+        Player harryIsTerug = new Player("Harry", "Potter", 800);
+        Player henkIsErOokWeer = new Player("Henk", "Timmerman", 900);
+        Player vaderPotter = new Player("James", "Potter", 800);
+        Player harryTweelingbroer = new Player("Harry2", "Potter", 10);
+
+        int numberOfPlayers = 4;
+
+        extendedUnsortedPlayers.addLast(harryIsTerug);
+        extendedUnsortedPlayers.addLast(henkIsErOokWeer);
+        extendedUnsortedPlayers.addLast(vaderPotter);
+        extendedUnsortedPlayers.addLast(harryTweelingbroer);
+
+        LinkedList<Player> players = getSubList(extendedUnsortedPlayers, numberOfPlayers);
+        AdvancedSorts.quickSort(players);
+
+        //for testing purpose, show that it sorted
+        System.out.println("sorted linkedlist:");
+        for (Player pot : players) {
+            System.out.println(pot + " ");
+        }
+
+        assertEquals(4, players.size());
+        assertEquals(henkIsErOokWeer, players.get(0));
     }
 }
