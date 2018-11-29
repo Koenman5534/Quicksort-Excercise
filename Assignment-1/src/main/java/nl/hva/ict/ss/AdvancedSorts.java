@@ -13,13 +13,12 @@ public class AdvancedSorts {
      */
     public static <E extends Comparable<E>> LinkedList<E> quickSort(LinkedList<E> unsorted) {
 
-        int pivot;
-        LinkedList<E> lowerSegmentList = new LinkedList<E>();
-        LinkedList<E> higherSegmentList = new LinkedList<E>();
+        //Doubly linked list
+        QuickSortLinkedList list =  new QuickSortLinkedList();
+
+         
 
 
-
-//        System.out.println(unsorted.toString());
 
 
         return unsorted;
@@ -34,8 +33,8 @@ public class AdvancedSorts {
      * @return
      */
     public static <E extends Comparable<E>> E[] quickSort(E[] unsorted) {
-        new QuickSort();
-        QuickSort qs = new QuickSort();
+        new QuickSortArray();
+        QuickSortArray qs = new QuickSortArray();
 
         int high = unsorted.length;
         qs.sort((Player[]) unsorted, 0, high-1);

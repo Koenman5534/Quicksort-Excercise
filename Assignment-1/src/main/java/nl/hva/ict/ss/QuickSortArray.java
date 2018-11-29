@@ -1,6 +1,6 @@
 package nl.hva.ict.ss;
 
-class QuickSort {
+class QuickSortArray {
     /**
      * This function takes last element as pivot,
      * places the pivot element at its correct
