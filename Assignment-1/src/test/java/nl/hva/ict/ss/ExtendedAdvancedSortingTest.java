@@ -17,6 +17,7 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
     @Test
     public void testArrayQuickSortSorts() {
+        extendedUnsortedPlayers.clear();
 
         Player harry = new Player("Harry", "Potter", 100);
         Player onmisbareHenk = new Player("Henk", "Timmerman", 1000);
@@ -34,10 +35,10 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         AdvancedSorts.quickSort(players);
 
         //for testing purpose, show that it sorted
-        System.out.println("sorted array:");
-        for (Player pot : players) {
-            System.out.println(pot + " ");
-        }
+//        System.out.println("sorted array:");
+//        for (Player pot : players) {
+//            System.out.println(pot + " ");
+//        }
 
         //still 4 players and henk on top?
         assertEquals(4, players.length);
@@ -46,6 +47,7 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
     @Test
     public void testLinkedListQuickSort() {
+        extendedUnsortedPlayers.clear();
 
         Player harryIsTerug = new Player("Harry", "Potter", 800);
         Player henkIsErOokWeer = new Player("Henk", "Timmerman", 900);
@@ -63,10 +65,10 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         AdvancedSorts.quickSort(players);
 
         //for testing purpose, show that it sorted
-        System.out.println("sorted linkedlist:");
-        for (Player pot : players) {
-            System.out.println(pot + " ");
-        }
+//        System.out.println("sorted linkedlist:");
+//        for (Player pot : players) {
+//            System.out.println(pot + " ");
+//        }
 
         //still 4 players and henk on top?
         assertEquals(4, players.size());
