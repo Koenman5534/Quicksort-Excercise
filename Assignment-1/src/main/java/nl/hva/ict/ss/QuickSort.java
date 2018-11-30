@@ -64,8 +64,13 @@ class QuickSort {
             sort(arr, pi + 1, high);
         }
     }
+    /* ----------------------------------------------------------------------------------------------------------
+       List implementation
+     */
 
     /**
+     * Partition of the linkedlist (same as array, but with linkedlist)
+     *
      * @param list Contains unsorted linkedlist and sorts it
      * @param low
      */
@@ -86,5 +91,23 @@ class QuickSort {
         }
         list.addAll(eersteLijst);
         list.addAll(tweedeLijst);
+    }
+
+
+    /**
+     * @param arr Contains unsorted linkedlist
+     * @param low
+     * @param high
+     */
+    void sort(LinkedList<Player> arr, int low, int high) {
+        if (low < high) {
+
+            int pi = partition(arr, low, high);
+
+            // Recursively sort elements before
+            // partition and after partition
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
+        }
     }
 }
