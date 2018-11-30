@@ -84,12 +84,48 @@ class QuickSort {
         while (it.hasNext()) {
             if (list.getFirst().compareTo(playerPivot) >= 1) {
                 eersteLijst.addLast(list.getFirst());
+                secondLinkedListsort(eersteLijst, playerPivot);
             } else {
-                tweedeLijst.addLast(list.getFirst());
+                tweedeLijst.addFirst(list.getFirst());
+                secondLinkedListsort(tweedeLijst, playerPivot);
             }
             list.removeFirst();
         }
+
         list.addAll(eersteLijst);
         list.addAll(tweedeLijst);
     }
+
+    /**
+     * Second sort to sort the linkedlist that has been cut in half
+     * @param list
+     * @param high
+     */
+    private void secondLinkedListsort(LinkedList<Player> list, Player high) {
+        LinkedList<Player> eersteLijst = new LinkedList<>();
+        LinkedList<Player> tweedeLijst = new LinkedList<>();
+
+//        Player playerPivot = list.get(high);
+
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            if (list.getFirst().compareTo(high) >= 1) {
+                eersteLijst.addLast(list.getFirst());
+            } else {
+                tweedeLijst.addFirst(list.getFirst());
+            }
+            list.removeFirst();
+        }
+
+        list.addAll(eersteLijst);
+        list.addAll(tweedeLijst);
+
+        //for testing purpose, show that it sorted
+        System.out.println("sorted linkedlist:");
+        System.out.println(high);
+        for (Player pot : list) {
+            System.out.println(pot + " ");
+        }
+    }
+
 }

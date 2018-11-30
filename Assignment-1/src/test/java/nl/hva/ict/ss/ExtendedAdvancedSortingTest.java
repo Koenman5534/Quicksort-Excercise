@@ -51,27 +51,31 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
 
         Player harryIsTerug = new Player("Harry", "Potter", 800);
         Player henkIsErOokWeer = new Player("Henk", "Timmerman", 900);
-        Player vaderPotter = new Player("James", "Potter", 800);
+        Player vaderPotter = new Player("James", "Potter", 810);
         Player harryTweelingbroer = new Player("Harry2", "Potter", 10);
+        Player asdasd = new Player("Har2", "Potter", 180);
+        Player asdas1d = new Player("Har2", "Potter", 250);
 
-        int numberOfPlayers = 4;
+        int numberOfPlayers = 6;
 
-        extendedUnsortedPlayers.addLast(harryIsTerug);
-        extendedUnsortedPlayers.addLast(henkIsErOokWeer);
-        extendedUnsortedPlayers.addLast(vaderPotter);
-        extendedUnsortedPlayers.addLast(harryTweelingbroer);
+            extendedUnsortedPlayers.addLast(harryIsTerug);
+            extendedUnsortedPlayers.addLast(henkIsErOokWeer);
+            extendedUnsortedPlayers.addLast(vaderPotter);
+            extendedUnsortedPlayers.addLast(harryTweelingbroer);
+            extendedUnsortedPlayers.addLast(asdasd);
+        extendedUnsortedPlayers.addLast(asdas1d);
 
         LinkedList<Player> players = getSubList(extendedUnsortedPlayers, numberOfPlayers);
         AdvancedSorts.quickSort(players);
 
-        //for testing purpose, show that it sorted
+//        //for testing purpose, show that it sorted
 //        System.out.println("sorted linkedlist:");
 //        for (Player pot : players) {
 //            System.out.println(pot + " ");
 //        }
 
         //still 4 players and henk on top?
-        assertEquals(4, players.size());
+        assertEquals(6, players.size());
         assertEquals(henkIsErOokWeer, players.get(0));
     }
 }
