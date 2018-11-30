@@ -20,7 +20,7 @@ public class AdvancedSorts {
 
         //ignoring that empty unsorted in test setup
         if (unsorted.size() >= 1) {
-            qs.sort((LinkedList<Player>) unsorted, 0);
+            qs.sort((LinkedList<Player>) unsorted, 0, unsorted.size() - 1);
         }
 
         //unsorted is now sorted list

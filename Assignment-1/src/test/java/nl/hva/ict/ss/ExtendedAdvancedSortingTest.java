@@ -68,11 +68,11 @@ public class ExtendedAdvancedSortingTest extends AdvancedSortingTest {
         LinkedList<Player> players = getSubList(extendedUnsortedPlayers, numberOfPlayers);
         AdvancedSorts.quickSort(players);
 
-//        //for testing purpose, show that it sorted
-//        System.out.println("sorted linkedlist:");
-//        for (Player pot : players) {
-//            System.out.println(pot + " ");
-//        }
+        //for testing purpose, show that it sorted
+        System.out.println("sorted linkedlist:");
+        for (Player pot : players) {
+            System.out.println(pot + " ");
+        }
 
         //still 4 players and henk on top?
         assertEquals(6, players.size());

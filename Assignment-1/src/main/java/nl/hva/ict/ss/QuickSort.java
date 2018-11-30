@@ -68,63 +68,51 @@ class QuickSort {
        List implementation
      */
 
-    /**
-     * Sort linkedlist
-     *
-     * @param list
-     * @param low
-     */
-    void sort(LinkedList<Player> list, int low) {
-        LinkedList<Player> eersteLijst = new LinkedList<>();
-        LinkedList<Player> tweedeLijst = new LinkedList<>();
+    public int partition(LinkedList<Player> list, int low, int high) {
+        Player playerPivot = list.get(high);
 
-        Player playerPivot = list.get(low);
+        // index of smaller element
+        int i = (low - 1);
+        int j = low;
 
         Iterator it = list.iterator();
-        while (it.hasNext()) {
-            if (list.getFirst().compareTo(playerPivot) >= 1) {
-                eersteLijst.addLast(list.getFirst());
-                secondLinkedListsort(eersteLijst, playerPivot);
-            } else {
-                tweedeLijst.addFirst(list.getFirst());
-                secondLinkedListsort(tweedeLijst, playerPivot);
+        while (it.hasNext() && j < high) {
+            if (list.get(j) != null) {
+                if (list.get(j).compareTo(playerPivot) >= 1) {
+                    i++;
+
+                    // swap arr[i] and arr[j]
+                    Player temp = list.get(i);
+                    list.set(i, list.get(j));
+                    list.set(j, temp);
+                }
             }
-            list.removeFirst();
+            j++;
         }
 
-        list.addAll(eersteLijst);
-        list.addAll(tweedeLijst);
+        // swap arr[i+1] and arr[high] (or pivot)
+        Player temp = list.get(i + 1);
+        list.set(i + 1, list.get(high));
+        list.set(high, temp);
+
+        return i + 1;
     }
 
+
     /**
-     * Second sort to sort the linkedlist that has been cut in half
-     * @param list
+     * @param arr  Contains unsorted linkedlist
+     * @param low
      * @param high
      */
-    private void secondLinkedListsort(LinkedList<Player> list, Player high) {
-        LinkedList<Player> eersteLijst = new LinkedList<>();
-        LinkedList<Player> tweedeLijst = new LinkedList<>();
+    void sort(LinkedList<Player> arr, int low, int high) {
+        if (low < high) {
 
-//        Player playerPivot = list.get(high);
+            int pi = partition(arr, low, high);
 
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            if (list.getFirst().compareTo(high) >= 1) {
-                eersteLijst.addLast(list.getFirst());
-            } else {
-                tweedeLijst.addFirst(list.getFirst());
-            }
-            list.removeFirst();
-        }
-
-        list.addAll(eersteLijst);
-        list.addAll(tweedeLijst);
-
-        //for testing purpose, show that it sorted
-        System.out.println("sorted linkedlist:");
-        System.out.println(high);
-        for (Player pot : list) {
-            System.out.println(pot + " ");
+            // Recursively sort elements before
+            // partition and after partition
+            sort(arr, low, pi - 1);
+            sort(arr, pi + 1, high);
         }
     }
 
