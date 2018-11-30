@@ -106,8 +106,7 @@ class QuickSort {
      */
     void sort(LinkedList<Player> arr, int low, int high) {
         if (low < high) {
-            /* pi is partitioning index, arr[pi] is
-              now at right place */
+
             int pi = partition(arr, low, high);
 
             // Recursively sort elements before

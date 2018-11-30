@@ -13,27 +13,20 @@ public class AdvancedSorts {
      */
     public static <E extends Comparable<E>> LinkedList<E> quickSort(LinkedList<E> unsorted) {
 
-        //sorted linkedlist
-        LinkedList<E> sorted = new LinkedList<>();
-
         new QuickSort();
         QuickSort qs = new QuickSort();
 
+        LinkedList<E> sorted;
+
         //ignoring that empty unsorted in test setup
         if (unsorted.size() >= 1) {
-
-            //fill linkedlist with unsorted data
-            for (E playerData : unsorted) {
-                sorted.push(playerData);
-            }
-
-            int high = unsorted.size();
-            qs.sort((LinkedList<Player>) unsorted, 0, high - 1);
+            qs.sort((LinkedList<Player>) unsorted, 0, unsorted.size() - 1);
 
         }
-        //sorted list
-        return sorted;
 
+        //unsorted is now sorted list
+        sorted = unsorted;
+        return sorted;
     }
 
     /**
@@ -56,9 +49,8 @@ public class AdvancedSorts {
             int high = unsorted.length;
             //quicksort the unsorted array
             qs.sort((Player[]) unsorted, 0, high - 1);
-
-
         }
+
         //even if unsorted is null, still copy it to sorted array
         sorted = unsorted;
         return sorted;
