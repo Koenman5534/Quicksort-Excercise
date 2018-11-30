@@ -69,35 +69,42 @@ class QuickSort {
      */
 
     /**
-     * Sort linkedlist
+     * Sort linkedlist, first compare each value and puts these in seperate lists
+     * Afterwards its calls the _sort function that will sort them in order
      *
      * @param list
      * @param low
      */
     void sort(LinkedList<Player> list, int low, int high) {
-        LinkedList<Player> eersteLijst = new LinkedList<>();
-        LinkedList<Player> tweedeLijst = new LinkedList<>();
+        LinkedList<Player> bigList = new LinkedList<>();
+        LinkedList<Player> smallList = new LinkedList<>();
 
         Player playerPivot = list.get(low);
 
         Iterator it = list.iterator();
         while (it.hasNext()) {
+            //split in 2 seperate lists
             if (list.getFirst().compareTo(playerPivot) >= 1) {
-                eersteLijst.addLast(list.getFirst());
+                bigList.addLast(list.getFirst());
             } else {
-                tweedeLijst.addLast(list.getFirst());
+                smallList.addLast(list.getFirst());
             }
             list.removeFirst();
         }
 
-        _sort(tweedeLijst, low, tweedeLijst.size()  -1);
-        _sort(eersteLijst, low, eersteLijst.size()  -1);
+        _sort(smallList, low, smallList.size() - 1);
+        _sort(bigList, low, bigList.size() - 1);
 
-        list.addAll(eersteLijst);
-        list.addAll(tweedeLijst);
+        list.addAll(bigList);
+        list.addAll(smallList);
     }
 
-
+    /**
+     * @param list
+     * @param low
+     * @param high
+     * @return
+     */
     private int partition(LinkedList<Player> list, int low, int high) {
         Player playerPivot = list.get(high);
 
@@ -111,7 +118,6 @@ class QuickSort {
                 if (list.get(j).compareTo(playerPivot) >= 1) {
                     i++;
 
-                    // swap arr[i] and arr[j]
                     Player temp = list.get(i);
                     list.set(i, list.get(j));
                     list.set(j, temp);
@@ -130,6 +136,7 @@ class QuickSort {
 
 
     /**
+     *  Recursive sort method that sorts the 2 lists
      * @param arr  Contains unsorted linkedlist
      * @param low
      * @param high
