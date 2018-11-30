@@ -68,7 +68,37 @@ class QuickSort {
        List implementation
      */
 
-    public int partition(LinkedList<Player> list, int low, int high) {
+    /**
+     * Sort linkedlist
+     *
+     * @param list
+     * @param low
+     */
+    void sort(LinkedList<Player> list, int low, int high) {
+        LinkedList<Player> eersteLijst = new LinkedList<>();
+        LinkedList<Player> tweedeLijst = new LinkedList<>();
+
+        Player playerPivot = list.get(low);
+
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            if (list.getFirst().compareTo(playerPivot) >= 1) {
+                eersteLijst.addLast(list.getFirst());
+            } else {
+                tweedeLijst.addLast(list.getFirst());
+            }
+            list.removeFirst();
+        }
+
+        _sort(tweedeLijst, low, tweedeLijst.size()  -1);
+        _sort(eersteLijst, low, eersteLijst.size()  -1);
+
+        list.addAll(eersteLijst);
+        list.addAll(tweedeLijst);
+    }
+
+
+    private int partition(LinkedList<Player> list, int low, int high) {
         Player playerPivot = list.get(high);
 
         // index of smaller element
@@ -104,15 +134,15 @@ class QuickSort {
      * @param low
      * @param high
      */
-    void sort(LinkedList<Player> arr, int low, int high) {
+    void _sort(LinkedList<Player> arr, int low, int high) {
         if (low < high) {
 
             int pi = partition(arr, low, high);
 
             // Recursively sort elements before
             // partition and after partition
-            sort(arr, low, pi - 1);
-            sort(arr, pi + 1, high);
+            _sort(arr, low, pi - 1);
+            _sort(arr, pi + 1, high);
         }
     }
 
